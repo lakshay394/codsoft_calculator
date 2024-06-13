@@ -24,30 +24,6 @@ const clear = document.getElementById('clr');
 
 
 
-one.addEventListener('click', onClickButton);
-two.addEventListener('click', onClickButton);
-three.addEventListener('click', onClickButton);
-four.addEventListener('click', onClickButton);
-five.addEventListener('click', onClickButton);
-six.addEventListener('click', onClickButton);
-seven.addEventListener('click', onClickButton);
-eight.addEventListener('click', onClickButton);
-nine.addEventListener('click', onClickButton);
-zero.addEventListener('click', onClickButton);
-dot.addEventListener('click', onClickButton);
-perc.addEventListener('click', onClickButton);
-lbr.addEventListener('click', onClickButton);
-plus.addEventListener('click', onClickButton);
-sub.addEventListener('click', onClickButton);
-product.addEventListener('click', onClickButton);
-div.addEventListener('click', onClickButton);
-equal.addEventListener('click', onClickEqual);
-clear.addEventListener('click', onClear);
-del.addEventListener('click', oneCharDown);
-
-
-
-
 
 // variable and function for input in display
 let entry = "";
@@ -97,3 +73,28 @@ document.addEventListener("keydown", (e) => {
         }
     }
 });
+
+
+
+one.addEventListener('click', onClickButton);
+two.addEventListener('click', onClickButton);
+three.addEventListener('click', onClickButton);
+four.addEventListener('click', onClickButton);
+five.addEventListener('click', onClickButton);
+six.addEventListener('click', onClickButton);
+seven.addEventListener('click', onClickButton);
+eight.addEventListener('click', onClickButton);
+nine.addEventListener('click', onClickButton);
+zero.addEventListener('click', onClickButton);
+dot.addEventListener('click', onClickButton);
+perc.addEventListener('click', onClickButton);
+lbr.addEventListener('click', onClickButton);
+plus.addEventListener('click', onClickButton);
+sub.addEventListener('click', onClickButton);
+product.addEventListener('click', onClickButton);
+div.addEventListener('click', onClickButton);
+equal.addEventListener('click', onClickEqual);
+clear.addEventListener('click', onClear);
+del.addEventListener('click', oneCharDown);
+
+
