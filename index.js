@@ -19,9 +19,8 @@ const plus = document.getElementById('+');
 const sub = document.getElementById('-');
 const product = document.getElementById('*');
 const div = document.getElementById('/');
-const equal = document.getElementById('=');
+const equal = document.getElementById('eql');
 const clear = document.getElementById('clr');
-
 
 
 one.addEventListener('click', onClickButton);
@@ -51,16 +50,26 @@ del.addEventListener('click', oneCharDown);
 
 // variable and function for input in display
 let entry = "";
+textarea.value = 0;
+
 
 
 function onClickButton(event) {
-    entry = textarea.value;
+    document.getElementById(this.id).classList.add("transform-active");
+    // entry = textarea.value;
     entry += this.id;
     textarea.value = entry;
     entry = textarea.value;
+    setTimeout((e) => {
+        document.getElementById(this.id).classList.remove("transform-active")
+    }, 150);
 }
 
 function onClickEqual() {
+    document.getElementById("eql").classList.add("transform-active");
+    setTimeout((e) => {
+        document.getElementById("eql").classList.remove("transform-active")
+    }, 150);
     entry = textarea.value;
     // alert(eval(entry))
     let ans = eval(entry);
@@ -69,21 +78,52 @@ function onClickEqual() {
 }
 
 function onClear() {
-    textarea.value = '';
+    document.getElementById(this.id).classList.add("transform-active");
+    textarea.value = '0';
     entry = '';
+    setTimeout((e) => {
+        document.getElementById(this.id).classList.remove("transform-active")
+    }, 200);
 }
 
 function oneCharDown() {
-    entry = textarea.value;
-    entry = entry.slice(0, -1);
-    textarea.value = entry;
+    document.getElementById(this.id).classList.add("transform-active");
+    if (textarea.value != 0) {
+        if (textarea.value.length == 1) {
+            textarea.value = 0;
+            entry = '';
+        }
+        else {
+            entry = textarea.value;
+            entry = entry.slice(0, -1);
+            textarea.value = entry;
+        }
+    }
+    setTimeout((e) => {
+        document.getElementById(this.id).classList.remove("transform-active")
+    }, 200);
 }
-
-
 
 document.addEventListener("keydown", (e) => {
     if (e.key == "Enter") {
         onClickEqual();
+    }
+    else if (e.key=="Delete") {
+        textarea.value = '0';
+    entry = '';
+    }
+    else if(e.key=="Backspace"){
+        if (textarea.value != 0) {
+            if (textarea.value.length == 1) {
+                textarea.value = 0;
+                entry = '';
+            }
+            else {
+                entry = textarea.value;
+                entry = entry.slice(0, -1);
+                textarea.value = entry;
+            }
+        }
     }
 });
 
@@ -91,9 +131,13 @@ document.addEventListener("keydown", (e) => {
     const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] == e.key) {
-            entry = textarea.value;
+            document.getElementById(arr[i]).classList.add("transform-active");
+            setTimeout((e) => {
+                document.getElementById(arr[i]).classList.remove("transform-active")
+            }, 100);
             entry += e.key;
             textarea.value = entry;
         }
     }
 });
+
